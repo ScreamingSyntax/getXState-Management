@@ -1,13 +1,13 @@
-import 'package:day_1/models/products.dart';
+import 'package:day_1/controller/shopping_controller.dart';
+import 'package:day_1/model/products.dart';
 import 'package:get/get.dart';
 
-class CartController extends GetxController {
+class CarController extends GetxController {
   var cartItems = <Products>[].obs;
-
-  double get totalPrice => cartItems.fold(0, (sum, item) => sum + item.price);
-  int get totalORder => cartItems.length;
-
-  addToCart(Products products) {
-    cartItems.add(products);
+  // double getTotalPrice = cartItems.fold(initialValue, (previousValue, element) => null)
+  int get getTotalPrice =>
+      cartItems.fold(0, (sum, item) => sum + item.productPrice);
+  void addToCart(Products product) {
+    cartItems.add(product);
   }
 }
